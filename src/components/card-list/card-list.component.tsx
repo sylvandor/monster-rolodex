@@ -2,12 +2,17 @@ import React from "react";
 import Card from "./card/card.component";
 
 import './card-list.styles.css'
+import {Monster} from "../../App";
 
-const CardList = ({monsters}) =>
+type CardListProps = {
+  monsters: Monster[]
+}
+
+const CardList = ({monsters}:CardListProps) =>
   <div className={'card-list'}>
     {monsters
-      .map(({name, id, email}) => (
-        <Card key={id} name={name} id={id} email={email}/>
+      .map(monster => (
+        <Card monster={monster}/>
       ))
     }
   </div>
